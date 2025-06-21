@@ -2,17 +2,26 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <title>Купить звезды</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>naBLOKE STARS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="style.css" />
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
   <script src="https://unpkg.com/@tonconnect/sdk@latest"></script>
 </head>
 <body>
   <canvas id="starCanvas"></canvas>
-  <div class="container">
-    <h1>Купить звезды</h1>
 
+  <div id="startScreen" class="screen">
+    <h1 class="fade-in">naBLOKE STARS</h1>
+    <div class="buttons">
+      <button id="btnBuyStars">Купить звезды</button>
+      <a href="https://t.me/NFTnaBLOKE" target="_blank" class="btn-link">Канал с NFT</a>
+      <a href="https://t.me/naBLOKEreviews" target="_blank" class="btn-link">Отзывы</a>
+    </div>
+  </div>
+
+  <div id="buyScreen" class="screen hidden">
+    <h1>Купить звезды</h1>
     <div id="userInfo" style="margin-bottom:15px; color:#0f0;"></div>
 
     <div class="input-group">
@@ -28,6 +37,7 @@
     </div>
 
     <button id="payButton">💎 Оплатить в TON</button>
+    <button id="btnBack" style="margin-top:10px; background:#666;">Назад</button>
   </div>
 
   <script src="script.js"></script>
