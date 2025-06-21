@@ -1,59 +1,104 @@
 body {
-  margin: 0;
-  padding: 0;
+  margin: 0; padding: 0;
   font-family: 'Arial', sans-serif;
   background: #000;
   color: #fff;
   overflow: hidden;
-}
-
-.container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  z-index: 2;
-  width: 90%;
-  max-width: 400px;
-}
-
-h1 {
-  font-size: 28px;
-  margin-bottom: 10px;
-}
-
-.input-group input {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  margin-bottom: 10px;
-  border: none;
-  border-radius: 8px;
-}
-
-.preset-buttons button,
-#payButton {
-  padding: 10px 15px;
-  font-size: 16px;
-  margin: 5px;
-  border: none;
-  border-radius: 8px;
-  background-color: #1f80e0;
-  color: #fff;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-
-#payButton {
-  background-color: #28a745;
-  width: 100%;
-  margin-top: 15px;
+  height: 100vh;
+  position: relative;
 }
 
 canvas {
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
   z-index: 0;
+}
+
+.screen {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+}
+
+.hidden {
+  display: none;
+}
+
+h1 {
+  font-size: 36px;
+  margin-bottom: 30px;
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+}
+
+.fade-in {
+  animation: fadeIn 3s forwards;
+}
+
+@keyframes fadeIn {
+  to {opacity: 1;}
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+button, .btn-link {
+  padding: 12px 18px;
+  font-size: 18px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  background-color: #1f80e0;
+  color: white;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+button:hover, .btn-link:hover {
+  background-color: #1465b8;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px;
+  font-size: 18px;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 15px;
+}
+
+.preset-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.preset-buttons button {
+  background-color: #28a745;
+  width: 60px;
+  font-weight: bold;
+}
+
+#payButton {
+  background-color: #f4b41a;
+  width: 100%;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+#btnBack {
+  background-color: #555;
 }
