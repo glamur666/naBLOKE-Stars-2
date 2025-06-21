@@ -1,0 +1,73 @@
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: #000;
+  color: #fff;
+  overflow: hidden;
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 10;
+  width: 90%;
+  max-width: 400px;
+}
+
+h1 {
+  margin-bottom: 10px;
+}
+
+.input-group {
+  margin: 10px 0;
+}
+
+input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: none;
+}
+
+.preset-buttons button,
+#payButton {
+  padding: 10px 15px;
+  font-size: 16px;
+  margin: 5px;
+  border: none;
+  border-radius: 6px;
+  background-color: #1e90ff;
+  color: white;
+  cursor: pointer;
+}
+
+#payButton {
+  background-color: #28a745;
+  margin-top: 15px;
+  width: 100%;
+}
+
+.modal {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #222;
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+  z-index: 999;
+  display: none;
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
