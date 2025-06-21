@@ -9,13 +9,14 @@
   <script src="https://unpkg.com/@tonconnect/sdk@latest"></script>
 </head>
 <body>
-  <canvas id="canvas"></canvas>
+  <canvas id="starCanvas"></canvas>
   <div class="container">
     <h1>Купить звезды</h1>
 
+    <div id="userInfo" style="margin-bottom:15px; color:#0f0;"></div>
+
     <div class="input-group">
-      <label for="starInput">Введите количество звёзд:</label>
-      <input type="number" id="starInput" placeholder="Например, 100">
+      <input type="number" id="starInput" placeholder="Введите количество звёзд" />
     </div>
 
     <div class="preset-buttons">
@@ -26,7 +27,7 @@
       <button onclick="setStars(500)">500</button>
     </div>
 
-    <button id="payButton">Оплатить</button>
+    <button id="payButton">💎 Оплатить в TON</button>
   </div>
 
   <script src="script.js"></script>
