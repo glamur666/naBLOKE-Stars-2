@@ -12,7 +12,7 @@
       background: #0f1a1a;
       overflow: hidden;
       font-family: 'Orbitron', sans-serif;
-      color: #40e0d0; /* Цвет Тиффани */
+      color: #40e0d0;
       text-align: center;
     }
 
@@ -57,7 +57,7 @@
       top: 0;
       left: 0;
       pointer-events: none;
-      z-index: 0;
+      z-index: -1;
     }
 
     .star {
@@ -66,14 +66,12 @@
       height: 14px;
       background: #40e0d0;
       border-radius: 50%;
-      opacity: 0.8;
+      opacity: 0.7;
       animation: fall linear infinite;
     }
 
     @keyframes fadeIn {
-      to {
-        opacity: 1;
-      }
+      to { opacity: 1; }
     }
 
     @keyframes fall {
@@ -92,11 +90,24 @@
   <h1>naBLOKE STARS</h1>
   <p>Приветствуем в naBLOKE STARS</p>
 
-  <a href="#" class="button" onclick="goToPurchase()">Купить звезды</a>
+  <a href="purchase.html" class="button">Купить звезды</a>
   <a href="https://t.me/NFTnaBLOKE" class="button" target="_blank">Канал с NFT</a>
   <a href="https://t.me/naBLOKEreviews" class="button" target="_blank">Отзывы</a>
 
   <div class="stars" id="stars"></div>
 
   <script>
-    function create
+    function createStar() {
+      const star = document.createElement('div');
+      star.classList.add('star');
+      star.style.left = Math.random() * 100 + 'vw';
+      star.style.animationDuration = 3 + Math.random() * 3 + 's';
+      star.style.opacity = 0.3 + Math.random() * 0.5;
+      document.getElementById('stars').appendChild(star);
+      setTimeout(() => star.remove(), 6000);
+    }
+
+    setInterval(createStar, 120);
+  </script>
+</body>
+</html>
