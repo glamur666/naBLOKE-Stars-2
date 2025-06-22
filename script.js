@@ -23,7 +23,7 @@ document.getElementById('pay-btn').addEventListener('click', async () => {
   paymentInfo.innerHTML = "<p>⏳ Загружаем данные для оплаты...</p>";
 
   try {
-    const res = await fetch("https://ТВОЙ-ДОМЕН.onrender.com/initiate", {
+    const res = await fetch("https://nabloke-stars-2.onrender.com/initiate", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ userId, stars: selectedStars }),
