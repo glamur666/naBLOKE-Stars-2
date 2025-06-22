@@ -129,3 +129,38 @@ window.addEventListener('resize', () => {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 });
+document.getElementById("pay-btn").addEventListener("click", async () => {
+  const stars = selectedStars; // выбранное пользователем количество
+  const tg = window.Telegram.WebApp;
+
+  const userId = tg.initDataUnsafe.user?.id;
+  if (!userId) {
+    alert("Ошибка: не удалось получить ваш Telegram ID");
+    return;
+  }
+
+  try {
+    const res = await fetch("https://твой-сервер.onrender.com/initiate", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ userId, stars }),
+    });
+
+    const data = await res.json();
+
+    if (data.address && data.comment) {
+      // Показываем пользователю данные для оплаты
+      document.getElementById("payment-info").innerHTML = `
+        <p>Отправьте <b>${data.amountTon} TON</b> на адрес:</p>
+        <code>${data.address}</code>
+        <p>В комментарии укажите:</p>
+        <code>${data.comment}</code>
+      `;
+    } else {
+      alert("Ошибка при получении данных для оплаты");
+    }
+  } catch (err) {
+    console.error("Ошибка:", err);
+    alert("Не удалось связаться с сервером");
+  }
+});
